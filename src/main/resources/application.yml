@@ -1,0 +1,19 @@
+server:
+  port: 21102
+
+spring:
+  datasource:
+    cif:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/cif?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=Asia/Shanghai
+      username: test
+      password: test@123456
+      minimumIdle: 5
+      maximumPoolSize: 30
+      idleTimeout: 180000
+      maxLifetime: 1800000
+      connectionTimeout: 1000
+      validationTimeout: 1000
+      connectionTestQuery: select 1
+  shardingsphere:
+    enabled: false

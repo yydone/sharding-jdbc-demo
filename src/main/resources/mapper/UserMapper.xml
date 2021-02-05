@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yydone.demo.dal.mapper.UserMapper">
+
+    <resultMap id="baseResultMap" type="com.yydone.demo.dal.model.UserDO">
+        <result column="user_id"       property="userId"        jdbcType="VARCHAR"/>
+        <result column="user_name"     property="userName"      jdbcType="VARCHAR"/>
+        <result column="created_at"    property="createdAt"     jdbcType="TIMESTAMP"/>
+        <result column="created_by"    property="createdBy"     jdbcType="VARCHAR"/>
+        <result column="updated_at"    property="updatedAt"     jdbcType="TIMESTAMP"/>
+        <result column="updated_by"    property="updatedBy"     jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        user_id,user_name,created_at,created_by,updated_at,updated_by
+    </sql>
+
+
+    <select id="selectByUserId" resultMap="baseResultMap" parameterType="java.lang.String">
+        SELECT
+            <include refid="Base_Column_List"></include>
+        FROM
+            t_user
+        WHERE
+            user_id = #{userId,jdbcType=VARCHAR}
+    </select>
+</mapper>
